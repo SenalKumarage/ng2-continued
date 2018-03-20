@@ -20,7 +20,9 @@ import { NavBarComponent } from './nav/navbar.component'
 import { JQ_TOKEN, 
          TOASTER_TOKEN, 
          Toastr,
-         CollapsibleWellComponent } from './common/index'
+         CollapsibleWellComponent,
+         SimpleModalComponent, 
+         ModalTriggerDirective} from './common/index'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
@@ -46,13 +48,19 @@ declare let jQuery:Object;
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   providers: [
     EventService, 
     {
       provide: TOASTER_TOKEN,
       useValue: toastr      
+    },
+    {
+      provide: JQ_TOKEN,
+      useValue: jQuery      
     }, 
     EventRouteActivator,
     EventListResolver,
